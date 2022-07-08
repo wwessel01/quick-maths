@@ -1,7 +1,7 @@
 export enum ExpressionType {
-    random,
-    addition,
-    subtraction,
-    multiplication,
-    division,
+    random = 'random',
+    addition = 'addition',
+    subtraction = 'subtraction',
+    multiplication = 'multiplication',
+    division = 'division',
 }

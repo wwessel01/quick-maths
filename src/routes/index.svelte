@@ -1,30 +1,43 @@
 <script lang="ts">
-    //@ts-ignore
-    import type Expression from "src/models/Expression";
-    import MathService from "$lib/services/MathService";
-    import { onMount } from "svelte";
-    import { ExpressionType } from "$lib/enums/ExpressionType";
-
-    let expressions: Expression[] | undefined;
-
-    onMount(async () => {
-        expressions = await MathService.getExpressions(20, ExpressionType.multiplication);
-    });
-
-    const reloadExpressions = async () => {
-        expressions = undefined;
-        expressions = await MathService.getExpressions(20, ExpressionType.multiplication);
-    };
 </script>
 
 <section>
-    <button on:click={reloadExpressions}>Reload expressions</button>
-    {#if expressions}
-    {JSON.stringify(expressions)}
-    {:else}
-    <img src="/three-dots.svg" alt="loader"/>
-    {/if}
+    <h2>I would like to practice...</h2>
+    <div class="buttons">
+        <a href="/practice/addition">➕</a>
+        <a href="/practice/subtraction">➖</a>
+        <a href="/practice/multiplication">✖️</a>
+        <a href="/practice/division">➗</a>
+        <a href="/practice/random">🎲</a>
+    </div>
 </section>
 
 <style>
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    a{
+        background-color: #47B5FF;
+        color: #DFF6FF;
+        text-decoration: none;
+        border: 3px solid #06283D;
+        border-radius: 0.5em;
+        font-size: 1.5em;
+        min-width: 5em;
+        min-height: 5em;
+        margin: 1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: transform 0.2s ease-in-out;
+    }
+
+    a:hover{
+        transform: scale(1.2);
+    }
 </style>
