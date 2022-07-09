@@ -5,6 +5,8 @@ export default class Expression{
     expression: string;
     answer: number;
 
+    userAnswer?: number;
+
     constructor(first: number, second: number, operation: string, expression: string, answer: number){
         this.first = first;
         this.second = second;

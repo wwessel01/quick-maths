@@ -13,12 +13,19 @@
 </section>
 
 <style>
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
     .buttons {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
         flex-wrap: wrap;
+        margin-inline: 2em;
     }
     a{
         background-color: #47B5FF;
