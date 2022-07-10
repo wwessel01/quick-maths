@@ -1,11 +1,12 @@
 <script lang="ts">
     import { max } from "../stores";
+    import { fly, fade } from 'svelte/transition';
 
     export let toggleVisible: () => void;
 </script>
 
-<div class="settings-back">
-    <div class="settings-front">
+<div class="settings-back" transition:fade>
+    <div class="settings-front" transition:fly="{{ y: 200, duration: 500 }}">
         <div class="settings-header">
             <h2>Settings</h2>
             <button on:click={toggleVisible}>✖️</button>

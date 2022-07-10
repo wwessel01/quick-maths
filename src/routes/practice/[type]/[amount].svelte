@@ -25,8 +25,6 @@
         if(!expressions) return;
         expressions[expressionId].userAnswer = answer;
 
-        if(!expressions[expressionId].userAnswer) return;
-
         if(currentIndex == expressions.length - 1) {
             complete = true;
         } 

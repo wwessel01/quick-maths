@@ -67,8 +67,9 @@
 
     .settings-button {
         position: absolute;
-        right: 5vw;
-        top: 3vh;
+        right: 0.5em;
+        top: 0.5em;
+        padding: 0;
 
         background-color: transparent;
         border: none;
