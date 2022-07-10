@@ -6,6 +6,8 @@
     import MathService from '$lib/services/MathService';
     import Progress from '$lib/components/Progress.svelte';
     import ExpressionView from '$lib/components/Expression.svelte';
+    import FinishView from '$lib/components/Finish.svelte';
+
 
     let type: ExpressionType = $page.params.type as ExpressionType;
     let amount: number = +$page.params.amount;
@@ -41,7 +43,7 @@
         {#if ready}
             {#if complete}
                 <Progress value={currentIndex} max={amount} />
-                <h2>Done 🏁</h2>
+                <FinishView expressions={expressions} />
             {:else}
                 {#key currentIndex}
                     <Progress value={currentIndex} max={amount} />

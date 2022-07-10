@@ -1,5 +1,6 @@
 <script lang="ts">
     import type Expression from "src/models/Expression";
+    import parseOperation from "$lib/helpers/OperationParser";
     import { onMount } from "svelte";
 
     export let id: number;
@@ -14,21 +15,6 @@
             answerFunction(id, answer);
         }
     };
-
-    const parseOperation = (operation: string) => {
-        switch(operation) {
-            case "+":
-                return "➕";
-            case "-":
-                return "➖";
-            case "*":
-                return "✖️";
-            case "/":
-                return "➗";
-            default:
-                return "";
-        }
-    }
 
     const renderExpression = () => {
         return `${expression.first} ${parseOperation(expression.operation)} ${expression.second} = `;
