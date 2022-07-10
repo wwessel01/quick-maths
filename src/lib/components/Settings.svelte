@@ -28,10 +28,11 @@
         background-color: #06283d80;
         width: 100vw;
         height: 100vh;
-        position: absolute;
+        position: fixed;
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 9;
     }
 
     .settings-front {
@@ -39,6 +40,7 @@
         padding: 1em;
         padding-inline: 2em;
         border-radius: 0.5em;
+        z-index: 10;
     }
 
     .settings-header {
@@ -53,6 +55,7 @@
         border: none;
         font-size: 1.5em;
         cursor: pointer;
+        padding: 0;
 
         transition: transform 0.2s ease-in-out;
     }
