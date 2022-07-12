@@ -1,9 +1,24 @@
 <script lang="ts">
+    import type Expression from "src/models/Expression";
     import parseOperation from "$lib/helpers/OperationParser";
 
-    import type Expression from "src/models/Expression";
-
     export let expressions: Expression[];
+
+    let sortHighToLowState: boolean = true;
+
+    const renderTime = (time: number | undefined) => {
+        if (!time) return "0.000";
+        return (time / 1000).toFixed(3);
+    };
+
+    const sortExpressions = () => {
+        const sortedExpressions = expressions.sort(function (a, b) {
+            if(sortHighToLowState) return b.userTime! - a.userTime!;            
+            return a.userTime! - b.userTime!;
+        });
+        expressions = [...sortedExpressions];
+        sortHighToLowState = !sortHighToLowState;
+    };
 </script>
 
 <section>
@@ -12,7 +27,16 @@
         <tr>
             <th>Expression</th>
             <th>Answer</th>
-            <th>Your answer</th>
+            <th>
+                Time (s)
+                <button on:click={sortExpressions}>
+                    {#if sortHighToLowState}
+                        🔼
+                    {:else}
+                        🔽
+                    {/if}
+                </button>
+            </th>
         </tr>
         {#each expressions as expression}
             <tr>
@@ -21,8 +45,14 @@
                     {parseOperation(expression.operation)}
                     {expression.second}
                 </td>
-                <td>{expression.answer}</td>
-                <td>{expression.userAnswer}</td>
+                <td>
+                    {#if expression.answer == expression.userAnswer}
+                        {expression.userAnswer}
+                    {:else}
+                        <span class="incorrect">{expression.userAnswer}</span> {expression.answer}
+                    {/if}
+                </td>
+                <td>{renderTime(expression.userTime)}</td>
                 <td>
                     {#if expression.answer == expression.userAnswer}
                         <div class="correct">✅</div>
@@ -53,9 +83,21 @@
         padding: 8px;
     }
 
+    th > button {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+    }
+
     .correct {
         text-align: center;
         font-size: 1.5em;
+    }
+
+    .incorrect {
+        color: red;
+        text-decoration: underline 2px;
+        font-weight: bold;
     }
     @media screen and (max-width: 600px) {
         section {

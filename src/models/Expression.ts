@@ -6,6 +6,7 @@ export default class Expression{
     answer: number;
 
     userAnswer?: number;
+    userTime?: number;
 
     constructor(first: number, second: number, operation: string, expression: string, answer: number){
         this.first = first;
