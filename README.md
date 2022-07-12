@@ -1,38 +1,39 @@
-# create-svelte
+![Vercel](https://vercelbadge.vercel.app/api/wwessel01/quick-maths?style=for-the-badge)
+![Website](https://img.shields.io/website?down_message=offline&style=for-the-badge&up_message=online&url=https%3A%2F%2Fquick-maths.vercel.app%2F)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+# Quick Maths
 
-## Creating a project
+![android-chrome-192x192](https://user-images.githubusercontent.com/49717888/178456812-e1e3b5d6-dac2-4eb8-9162-6eff981e47be.png)
 
-If you're seeing this, you've probably already done this step. Congrats!
+<p>An easy way to practice your math skills using a website that is compatible with your phone!</p>
 
-```bash
-# create a new project in the current directory
-npm init svelte
+## Preview
+<details>
+<summary>View image!</summary>
+ <img src="https://user-images.githubusercontent.com/49717888/178462705-15cc7abd-775e-478c-8bc9-641f7c875dbb.png">
+</details>
 
-# create a new project in my-app
-npm init svelte my-app
-```
 
-## Developing
+<h2>What you can practice:</h2>
+<ul>
+  <li>Addition</li>
+  <li>Subtraction</li>
+  <li>Multiplication</li>
+  <li>Division</li>
+</ul>
+<p>At the end of your practice you will get a result screen where you can see how you did.</p>
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Build with 
+[![Svelte][Svelte.dev]][Svelte-url]
 
-```bash
-npm run dev
+## Roadmap
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+- [ ] Test feature
+    - [ ] 10 questions per type
+    - [ ] Total time as score
+    - [ ] Total correct as score
+- [ ] Authentication
+    - [ ] Leaderboard
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
+[Svelte-url]: https://svelte.dev/
