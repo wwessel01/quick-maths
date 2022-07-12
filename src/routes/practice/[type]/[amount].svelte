@@ -14,16 +14,22 @@
     let currentIndex: number = 0;
     let expressions: Expression[] | undefined;
 
+    let intervalDate: Date;
+
     let ready: boolean = false;
     let complete: boolean = false;
 
     const toggleReady = () => {
         ready = !ready;
+
+        if(ready) intervalDate = new Date();
     };
 
     const addAnswerToExpression = (expressionId: number, answer: number) => {
         if(!expressions) return;
         expressions[expressionId].userAnswer = answer;
+        expressions[expressionId].userTime = new Date().getTime() - intervalDate.getTime();
+        intervalDate = new Date();
 
         if(!expressions[expressionId].userAnswer && expressions[expressionId].userAnswer !== 0) return;
 
