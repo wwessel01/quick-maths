@@ -1,8 +1,19 @@
 <script lang="ts">
     import { max } from "../stores";
     import { fly, fade } from 'svelte/transition';
+    import { onMount } from "svelte";
 
     export let toggleVisible: () => void;
+
+    $: if($max) {
+        window.localStorage.setItem('maxValue', `${$max}`);
+    }
+
+    onMount(() => {
+        const storageValue = window.localStorage.getItem('maxValue');
+        const maxValue = storageValue ? parseInt(storageValue) : 99;
+        max.set(maxValue);
+    });
 </script>
 
 <div class="settings-back" transition:fade>
